@@ -29,7 +29,7 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 include $(REQUIRE_TOOLS)/driver.makefile
 
-APP:=castApp
+APP:=client/castApp
 APPDB:=$(APP)/Db
 APPSRC:=$(APP)/src
 
