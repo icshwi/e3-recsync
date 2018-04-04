@@ -27,9 +27,9 @@
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-include $(REQUIRE_TOOLS)/driver.makefile
+include $(E3_REQUIRE_TOOLS)/driver.makefile
 
-APP:=castApp
+APP:=client/castApp
 APPDB:=$(APP)/Db
 APPSRC:=$(APP)/src
 
@@ -37,7 +37,7 @@ APPSRC:=$(APP)/src
 USR_INCLUDES += -I$(where_am_I)/$(APPSRC)
 
 
-TEMPLATES += $(wildcard $(APPDB)/*.db)
+TEMPLATES += $(APPDB)/reccaster.db
 
 
 SOURCES += $(APPSRC)/sockhelpers.c
@@ -48,3 +48,7 @@ SOURCES += $(APPSRC)/castinit.c
 SOURCES += $(APPSRC)/dbcb.c
 
 DBDS    += $(APPSRC)/reccaster.dbd
+
+# db rule is the default in RULES_E3, so add the empty one
+
+db:

@@ -1,0 +1,19 @@
+# One should define the any dependency modules and EPICS base path
+# in the following directory
+
+E3_MODULE_SRC_PATH2=$(E3_MODULE_SRC_PATH)/client
+
+
+.PHONY: epics epics-clean
+
+epics:
+	$(QUIET)echo "EPICS_BASE=$(EPICS_BASE)"        > $(TOP)/$(E3_MODULE_SRC_PATH2)/configure/RELEASE
+	$(QUIET)echo "CHECK_RELEASE=YES"               > $(TOP)/$(E3_MODULE_SRC_PATH2)/configure/CONFIG_SITE
+	$(QUIET)echo "CROSS_COMPILER_TARGET_ARCHS = "  >> $(TOP)/$(E3_MODULE_SRC_PATH2)/configure/CONFIG_SITE
+	$(QUIET)echo "INSTALL_LOCATION=$(M_RECSYNC)"   >> $(TOP)/$(E3_MODULE_SRC_PATH2)/configure/CONFIG_SITE
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH2)"
+
+epics-clean:
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH2) clean"
+
+
