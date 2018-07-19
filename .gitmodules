@@ -1,4 +1,4 @@
 [submodule "recsync"]
 	path = recsync
 	url = https://github.com/ChannelFinder/recsync
-	ignore = all
+	ignore = dirty
