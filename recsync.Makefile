@@ -49,6 +49,11 @@ SOURCES += $(APPSRC)/dbcb.c
 
 DBDS    += $(APPSRC)/reccaster.dbd
 
+
+SCRIPTS += ../iocsh/recsync.iocsh
+
+
+
 # db rule is the default in RULES_E3, so add the empty one
 
 db:

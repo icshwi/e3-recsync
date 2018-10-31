@@ -1,0 +1,17 @@
+#- ####################################################
+#- ###               RECSYNC    iocsh               ###
+#- ####################################################
+#- >> Mandatory
+#- IOCNAME            - IOCNAME (A-A:B-B)
+#- >> Optional
+#- RECCAST_TIMEOUT    - RECCAST timeout, Default : 5.0
+#- RECCAST_MAXHOLDOFF - RECCAST MaxHoldoff, Default : 5.0
+#-
+epicsEnvSet(RECCAST_TIMEOUT,  "$(TIMEOUT=5.0)")
+epicsEnvSet(RECCAST_MAXHOLDOFF, "$(MAXHOLDOFF=5.0)")
+#-
+var(reccastTimeout, $(RECCAST_TIMEOUT))
+var(reccastMaxHoldoff, $(RECCAST_MAXHOLDOFF))
+#-
+dbLoadRecords("reccaster.db", "P=$(IOCNAME)-RecSync:")
+#-
