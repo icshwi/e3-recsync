@@ -24,7 +24,7 @@
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 include $(E3_REQUIRE_TOOLS)/driver.makefile
-include $(where_am_I)/../configure/DECOUPLE_FLAGS
+include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
 USR_CPPFLAGS += -DUSE_TYPED_RSET
 
@@ -59,3 +59,7 @@ SCRIPTS += ../iocsh/recsync.iocsh
 db:
 
 .PHONY: db 
+#
+.PHONY: vlibs
+vlibs:
+#
