@@ -1,0 +1,8 @@
+digraph recsync {
+node [shape=record];
+base [label="base 7.0.3"]
+require [label="require 3.1.1"]
+recsync [label="recsync 1.3.0-9705e52"]
+base -> require ->  recsync 
+} 
+
